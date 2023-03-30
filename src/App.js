@@ -2,11 +2,16 @@
 // import './App.css';
 
 function App() {
+
+  // const name = "Markus Eicher";
+  // const ternary1 = false;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* {<img src={logo} className="App-logo" alt="My logo shows a blue circle with a smaller yellow circle in the upper right area. Like an eye looking up at the blue sky with a bright sun." />} */}
-      </header>
+    <div className="container">
+      <h1>Whitelisting and NFT minting dApp using a Merkle Tree</h1>
+      <h2>A Proof of Concept dApp for whitelisting Ethereum addresses for later minting of an NFT - A Project by Markus Eicher inspired by lesson 9 of the Sophomore Track from LearnWeb3DAO</h2>
+      {/* <p>My name {name} is inserted here from the const name</p> */}
+      {/* <p>This is an example of a ternary operator defined as const x it shows yes or no. It's currently set to {ternary1 ? 'Yes' : 'No'}</p> */}
     </div>
   );
 }
