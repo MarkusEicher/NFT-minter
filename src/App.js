@@ -49,6 +49,26 @@ const deleteFavorite = (id) => {
   setFavorites(favorites.filter(favorite => favorite.id !== id))
 }
 
+// Mark a specific Favorite to be exported
+const exportFavorite = (id) => {
+  // console.log(id)
+
+  setFavorites(favorites.map((favorite) => favorite.id === id ? {...favorite, type: 'export'} : favorite))
+  
+  setFavorites(favorites.map((favorite) => {
+    if (favorite.id === id) {
+      if (favorite.type === 'export') {
+        favorite.type = '';
+      } else {
+        favorite.type = 'export';
+      }
+      return {...favorite};
+    }
+    return favorite;
+  }));
+
+}
+
   // const name = "Markus Eicher";
   // const ternary1 = false;
 
@@ -57,7 +77,7 @@ const deleteFavorite = (id) => {
 
       <Header h1title='PoC Whitelisting and NFT minting dApp using a Merkle Tree' h2description = 'A Proof of Concept dApp for whitelisting Ethereum addresses for later minting of an NFT - Project by Markus Eicher inspired by lessons 9 and 10 of the Sophomore Track from LearnWeb3DAOO'/>
       {/* <h1>This is the h1 text from the div with className "container" defined in the App.js</h1> */}
-      {favorites.length > 0 ? (<Favs favorites={favorites} onDelete={deleteFavorite}/>) : ('No Favorites to show')}
+      {favorites.length > 0 ? (<Favs favorites={favorites} onDelete={deleteFavorite} onExport={exportFavorite} />) : ('No Favorites to show')}
       {/* <p>My name {name} is inserted here from the const name</p> */}
       {/* <p>This is an example of a ternary operator defined as const x it shows yes or no. It's currently set to {ternary1 ? 'Yes' : 'No'}</p> */}
       
