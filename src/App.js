@@ -76,7 +76,7 @@ const exportFavorite = (id) => {
   return (
     <div className="container">
 
-      <Header h1title='PoC Whitelisting and NFT minting dApp using a Merkle Tree' h2description = 'A Proof of Concept dApp for whitelisting Ethereum addresses for later minting of an NFT - Project by Markus Eicher inspired by lessons 9 and 10 of the Sophomore Track from LearnWeb3DAOO'/>
+      <Header h1title='Jumpstation - Favorites or Bookmarks manager with export function' h2description = 'Jumpstation Bookmark Manager - Export Favorites from your Browser to a website - Automatic and manual export of Bookmarks into card like web objects'/>
       < AddFavs />
       {/* <h1>This is the h1 text from the div with className "container" defined in the App.js</h1> */}
       {favorites.length > 0 ? (<Favs favorites={favorites} onDelete={deleteFavorite} onExport={exportFavorite} />) : ('No Favorites to show')}

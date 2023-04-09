@@ -1,4 +1,12 @@
+import { useState } from 'react';
+
 export const AddFavs = () => {
+
+    const [favorites, setFavorites] = useState('')
+    const [url, setUrl] = useState('')
+    const [toExport, settoExport] = useState(false)
+
+
   return (
     <form className="add-form">
         <div className="form-control">  
@@ -10,7 +18,7 @@ export const AddFavs = () => {
             <input type="text" placeholder="Add the URL of the site" />
         </div>
         <div className="form-control">  
-            <label htmlFor="title">Set Export</label>
+            <label htmlFor="title">Set to export</label>
             <input type="checkbox" />
         </div>
 
