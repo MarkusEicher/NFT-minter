@@ -7,7 +7,7 @@ const Header = (props) => {
     <header className='header'>
       <h1>{props.h1title}</h1>
       <h2>{props.h2description}</h2>
-      <Button color='green' text='Click me'/>
+      <Button text='Click me'/>
     </header>
   )
 }

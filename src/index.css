@@ -28,3 +28,10 @@ code {
   align-items: center;
   justify-content: space-between;
 }
+
+.button {
+  background-color: green;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
