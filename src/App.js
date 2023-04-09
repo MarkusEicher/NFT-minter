@@ -8,6 +8,7 @@ import { AddFavs } from './components/AddFavs';
 
 const App = () => {
 
+  const [showAddFavs, setshowAddFavs] = useState(false)
   const [favorites, setFavorites] = useState([
     {
         "guid": "98fd2sXJQFq_",
@@ -45,6 +46,17 @@ const App = () => {
     }
 ])
 
+// Add an entry to the UI out of the favorites array
+const addFavorite = (favorite) => {
+  // console.log(favorites)
+  const id = Math.floor(Math.random() * 
+  10000) +1 
+  // console.log(id)
+  const newFavorite = { id, ...favorite }
+  setFavorites ([...favorites, newFavorite])
+}
+
+
 // Delete an entry from the UI out of the favorites array
 const deleteFavorite = (id) => {
   setFavorites(favorites.filter(favorite => favorite.id !== id))
@@ -76,8 +88,8 @@ const exportFavorite = (id) => {
   return (
     <div className="container">
 
-      <Header h1title='Jumpstation - Favorites or Bookmarks manager with export function' h2description = 'Jumpstation Bookmark Manager - Export Favorites from your Browser to a website - Automatic and manual export of Bookmarks into card like web objects'/>
-      < AddFavs />
+      <Header onAdd={() => setshowAddFavs(!showAddFavs)} h1title='Jumpstation - Favorites or Bookmarks manager with export function' h2description = 'Jumpstation Bookmark Manager - Export Favorites from your Browser to a website - Automatic and manual export of Bookmarks into card like web objects'/>
+      {showAddFavs && < AddFavs onAdd={addFavorite}/>}
       {/* <h1>This is the h1 text from the div with className "container" defined in the App.js</h1> */}
       {favorites.length > 0 ? (<Favs favorites={favorites} onDelete={deleteFavorite} onExport={exportFavorite} />) : ('No Favorites to show')}
       {/* <p>My name {name} is inserted here from the const name</p> */}

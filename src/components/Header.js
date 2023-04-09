@@ -2,12 +2,18 @@
 // import logo from './MECS-Logo-Icon.png';
 // import './App.css';
 import Button from "./Button"
-const Header = (props) => {
+
+const Header = ({h1title, h2description, onAdd}) => {
+  
+  // const onClick = () => {
+  //   console.log('clicked')
+  // }
+
   return (
     <header className='header'>
-      <h1>{props.h1title}</h1>
-      <h2>{props.h2description}</h2>
-      <Button text='Click me'/>
+      <h1>{h1title}</h1>
+      <h2>{h2description}</h2>
+      <Button className='button' text='Add Favorite' onClick={onAdd}/>
     </header>
   )
 }
