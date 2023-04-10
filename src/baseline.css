@@ -15,6 +15,9 @@ These settings are derived from the following source:
 	License: none (public domain)
 */
 
+/* 
+Added button and input to the list of things to reset
+*/
 html, body, div, span, applet, object, iframe,
 h1,h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -59,11 +62,17 @@ table {
 	border-spacing: 0;
 }
 
-/* Added by Markus Eicher to have links without any styling upfront */
+/* Added by Markus Eicher */
+
+/*links without any styling upfront */
 a {
 	text-decoration: none;
 	list-style: none;
 	/* display: inline-block; */
 	/* color:black; */
 }
+/* All buttons and inputs have this defaults */
+/* button input{
+	background-color: gray;
+} */
 /* End of full reset following Myers. */

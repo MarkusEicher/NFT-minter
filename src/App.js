@@ -1,5 +1,5 @@
 // import React from 'react'; // Import React for using classes
-// import './App.css';
+import './App.css';
 import { useState } from 'react';
 import Header from './components/Header';
 import Favs from './components/Favs';
@@ -88,7 +88,7 @@ const exportFavorite = (id) => {
   return (
     <div className="container">
 
-      <Header onAdd={() => setshowAddFavs(!showAddFavs)} h1title='Jumpstation - Favorites or Bookmarks manager with export function' h2description = 'Jumpstation Bookmark Manager - Export Favorites from your Browser to a website - Automatic and manual export of Bookmarks into card like web objects'/>
+      <Header onAdd={() => setshowAddFavs(!showAddFavs)} showAddForm={showAddFavs} h1title='Jumpstation - Favorites or Bookmarks manager with export function' h2description = 'Jumpstation Bookmark Manager - Export Favorites from your Browser to a website - Automatic and manual export of Bookmarks into card like web objects'/>
       {showAddFavs && < AddFavs onAdd={addFavorite}/>}
       {/* <h1>This is the h1 text from the div with className "container" defined in the App.js</h1> */}
       {favorites.length > 0 ? (<Favs favorites={favorites} onDelete={deleteFavorite} onExport={exportFavorite} />) : ('No Favorites to show')}

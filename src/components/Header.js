@@ -1,9 +1,9 @@
 // import React from 'react'
 // import logo from './MECS-Logo-Icon.png';
-// import './App.css';
+import '../App.css';
 import Button from "./Button"
 
-const Header = ({h1title, h2description, onAdd}) => {
+const Header = ({h1title, h2description, onAdd, showAddForm}) => {
   
   // const onClick = () => {
   //   console.log('clicked')
@@ -13,7 +13,7 @@ const Header = ({h1title, h2description, onAdd}) => {
     <header className='header'>
       <h1>{h1title}</h1>
       <h2>{h2description}</h2>
-      <Button className='button' text='Add Favorite' onClick={onAdd}/>
+      <Button color={showAddForm ? 'red' : 'green'} text={showAddForm ? 'Close Form' : 'Add Favorite'} onClick={onAdd}/>
     </header>
   )
 }
