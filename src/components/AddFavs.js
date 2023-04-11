@@ -32,10 +32,10 @@ export const AddFavs = ({onAdd}) => {
             <label htmlFor="title">uri</label>
             <input type="text" placeholder="Add the uri of the site" value = {uri} onChange={(e) => setUri (e.target.value)}/>
         </div>
-        <div className="form-control">  
+        {/* <div className="form-control">  
             <label htmlFor="title">Set to export</label>
             <input type="checkbox" checked = {toExport} value = {toExport} onChange={(e) => settoExport (e.target.checked)} />
-        </div>
+        </div> */}
 
         <input className="button" type="submit" value="Save Favorite" />
 

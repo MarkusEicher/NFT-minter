@@ -29,6 +29,15 @@ const fetchFavorites = async () => {
   return data
 }
 
+// Fetch the favorites from the API
+const fetchFavorite = async (id) => {
+  const res = await fetch(`http://localhost:5000/urls/${id}`)
+  const data = await res.json()
+
+  // console.log(data)
+  return data
+}
+
 // Add an entry to the UI out of the favorites array
 const addFavorite = async (favorite) => {
 
@@ -65,8 +74,10 @@ const deleteFavorite = async (id) => {
 
 
 // Mark a specific Favorite to be exported
-const exportFavorite = (id) => {
-  // console.log(id)
+const exportFavorite = async (id) => {
+  
+  const favToExport = await fetchFavorite(id)
+  const updFavorite = {...favToExport, toExport: !favToExport.toExxport} 
 
   setFavorites(favorites.map((favorite) => favorite.id === id ? {...favorite, type: 'export'} : favorite))
   
