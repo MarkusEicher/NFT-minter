@@ -12,31 +12,57 @@ const App = () => {
   const [favorites, setFavorites] = useState([])
 
   useEffect(() => {
-    const fetchFavorites = async () => {
-      const res = await fetch('http://localhost:5000/favorites')
-      const data = await res.json()
-
-      console.log(data)
+    const getFavorites = async () => {
+      const favoritesFromServer = await fetchFavorites()
+      setFavorites(favoritesFromServer)
     }
 
-    fetchFavorites()
+    getFavorites()
   }, [])
 
+// Fetch the favorites from the API
+const fetchFavorites = async () => {
+  const res = await fetch('http://localhost:5000/urls')
+  const data = await res.json()
+
+  // console.log(data)
+  return data
+}
+
 // Add an entry to the UI out of the favorites array
-const addFavorite = (favorite) => {
+const addFavorite = async (favorite) => {
+
+  const res = await fetch ('http://localhost:5000/urls', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(favorite),
+  })
+
+  const data = await res.json()
+
+  setFavorites([...favorites, data])
+
   // console.log(favorites)
-  const id = Math.floor(Math.random() * 
-  10000) +1 
+  // const id = Math.floor(Math.random() * 
+  // 10000) +1 
   // console.log(id)
-  const newFavorite = { id, ...favorite }
-  setFavorites ([...favorites, newFavorite])
+  // const newFavorite = { id, ...favorite }
+  // setFavorites ([...favorites, newFavorite])
 }
 
 
 // Delete an entry from the UI out of the favorites array
-const deleteFavorite = (id) => {
-  setFavorites(favorites.filter(favorite => favorite.id !== id))
+const deleteFavorite = async (id) => {
+
+  await fetch(`http://localhost:5000/urls/${id}`, {
+    method: 'DELETE'
+  })
+
+  setFavorites(favorites.filter((favorite) => favorite.id !== id))
 }
+
 
 // Mark a specific Favorite to be exported
 const exportFavorite = (id) => {
