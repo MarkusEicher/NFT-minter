@@ -1,6 +1,6 @@
 // import React from 'react'; // Import React for using classes
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Favs from './components/Favs';
 import { AddFavs } from './components/AddFavs';
@@ -9,42 +9,18 @@ import { AddFavs } from './components/AddFavs';
 const App = () => {
 
   const [showAddFavs, setshowAddFavs] = useState(false)
-  const [favorites, setFavorites] = useState([
-    {
-        "guid": "98fd2sXJQFq_",
-        "title": ".NET Tutorials | Microsoft Docs",
-        "index": 0,
-        "dateAdded": 1619361520865000,
-        "lastModified": 1619361527401000,
-        "id": 25,
-        "typeCode": 1,
-        "type": "text/x-moz-place",
-        "uri": "https://docs.microsoft.com/en-us/dotnet/core/tutorials/"
-    },
-    {
-        "guid": "tum4MRd7WnpN",
-        "title": "Let's Learn .NET: C#",
-        "index": 1,
-        "dateAdded": 1619299376175000,
-        "lastModified": 1619361542481000,
-        "id": 21,
-        "typeCode": 1,
-        "iconUri": "https://d24wuq6o951i2g.cloudfront.net/img/events/id/457/457962743/assets/cd2321239e39aad6ce6bd1e1123aa280.d85.Microsoft-logo_rgb_c-favicon.png",
-        "type": "text/x-moz-place",
-        "uri": "https://letslearndotnet.splashthat.com/"
-    },
-    {
-        "guid": "780auqrrJa_l",
-        "title": "Common NuGet configurations",
-        "index": 2,
-        "dateAdded": 1619462415340000,
-        "lastModified": 1619462430118000,
-        "id": 26,
-        "typeCode": 1,
-        "type": "text/x-moz-place",
-        "uri": "https://docs.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior"
+  const [favorites, setFavorites] = useState([])
+
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      const res = await fetch('http://localhost:5000/favorites')
+      const data = await res.json()
+
+      console.log(data)
     }
-])
+
+    fetchFavorites()
+  }, [])
 
 // Add an entry to the UI out of the favorites array
 const addFavorite = (favorite) => {
