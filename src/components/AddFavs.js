@@ -2,22 +2,22 @@ import { useState } from 'react';
 
 export const AddFavs = ({onAdd}) => {
 
-    const [favorites, setFavorites] = useState('')
-    const [url, setUrl] = useState('')
+    const [title, setTitle] = useState('')
+    const [uri, setUri] = useState('')
     const [toExport, settoExport] = useState(false)
 
     const onSubmit = (e) => {
         e.preventDefault()
         
-        if (!favorites || !url) {
+        if (!title || !uri) {
             alert('Please fill in all fields')
             return
         }
 
-        onAdd({favorites, url, toExport})
+        onAdd({title, uri, toExport})
 
-        setFavorites('')
-        setUrl('')
+        setTitle('')
+        setUri('')
         settoExport(false)
 
     }
@@ -26,11 +26,11 @@ export const AddFavs = ({onAdd}) => {
     <form className="add-form" onSubmit={onSubmit}>
         <div className="form-control">  
             <label htmlFor="title">Favorite</label>
-            <input type="text" placeholder="Add a Favorite" value = {favorites} onChange={(e) => setFavorites (e.target.value)}/>
+            <input type="text" placeholder="Add a Favorite" value = {title} onChange={(e) => setTitle (e.target.value)}/>
         </div>
         <div className="form-control">  
-            <label htmlFor="title">URL</label>
-            <input type="text" placeholder="Add the URL of the site" value = {url} onChange={(e) => setUrl (e.target.value)}/>
+            <label htmlFor="title">uri</label>
+            <input type="text" placeholder="Add the uri of the site" value = {uri} onChange={(e) => setUri (e.target.value)}/>
         </div>
         <div className="form-control">  
             <label htmlFor="title">Set to export</label>

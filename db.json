@@ -35,16 +35,10 @@
       "uri": "https://docs.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior"
     },
     {
-      "title": "1",
-      "uri": "2",
-      "toExport": true,
-      "id": 27
-    },
-    {
-      "favorites": "3",
-      "url": "4",
+      "title": "Codedamn",
+      "uri": "https://codedamn.com/dashboard",
       "toExport": false,
-      "id": 28
+      "id": 27
     }
   ]
 }
